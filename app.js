@@ -72,6 +72,7 @@ app.get('/reviews/:id',(req,res) =>{
 // EDIT
 app.get('/reviews/:id/edit', (req,res) => {
 Review.findById(req.params.id, (err,review)=>{
+    console.log(review);
     res.render('/review-edit', {review:review});
     });
 });
@@ -80,6 +81,18 @@ app.put('/reviews/:id',(req,res)=>{
 Review.findByIdAndUpdate(req.params.id,req.body, (review)=>{
     res.redirect(`/reviews/${review._id}`);
     });
+});
+
+// DELETE
+app.delete('/reviews/:id', function(req,res){
+console.log("delete review");
+Review.findOneAndRemove(req.params.id)
+.then((review) =>{
+    res.redirect('/');
+})
+.catch((err)=>{
+    console.log(err.message);
+});
 });
 
 // SERVER
