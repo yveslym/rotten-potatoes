@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 // connect mongoose db
-mongoose.connect('mongodb:https://rotten-potatoes-back-end-app.herokuapp.com',{
+mongoose.connect('mongodb://localhost/rotten-potatoes',{
    useNewUrlParser: true
 });
 
