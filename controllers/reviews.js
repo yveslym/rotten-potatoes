@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const Review = require('../models/reviews');
+const Review = require('../models/review');
 
 
 // ROOT
@@ -72,4 +72,10 @@ Review.findOneAndRemove(req.params.id)
     console.log(err.message);
         });
     });
+
+
     module.exports = router;
+
+
+
+    
