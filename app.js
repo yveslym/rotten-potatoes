@@ -1,9 +1,9 @@
-const express = require('express');
-const methodOverride = require('method-override');
-const exphbs = require('express-handlebars');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const app = express();
+var express = require('express');
+var methodOverride = require('method-override');
+var exphbs = require('express-handlebars');
+var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
+var app = express();
 
 // connect mongoose db
 // mongoose.connect('mongodb://localhost/rotten-potatoes',{
@@ -13,7 +13,8 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes
 
 
 // ROUTER
-const review = require('./controllers/reviews');
+var review = require('./controllers/reviews');
+var comment = require('./controllers/comments')
 
  //ROUTES MIDDLEWARE
 app.use(bodyParser.urlencoded({extended:true}));
