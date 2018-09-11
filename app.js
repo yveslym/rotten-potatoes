@@ -6,9 +6,11 @@ const bodyParser = require('body-parser');
 const app = express();
 
 // connect mongoose db
-mongoose.connect('mongodb://localhost/rotten-potatoes',{
-   useNewUrlParser: true
-});
+// mongoose.connect('mongodb://localhost/rotten-potatoes',{
+//    useNewUrlParser: true
+// });
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes');
+
 
 // ROUTER
 const review = require('./controllers/reviews');
@@ -22,7 +24,7 @@ app.use('/',review);
 
 
 // SERVER
-app.listen(3000, () =>{
+app.listen(process.env.PORT || 3000, () =>{
     console.log('App listening on port 3000!');
 }); 
 
