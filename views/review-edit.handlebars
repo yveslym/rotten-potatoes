@@ -1,8 +1,13 @@
-<form method="POST" action="/reviews/{{review._id}}?_method=PUT">
-  {{> reviews-form}}
-  <!-- BUTTON -->
-  <div>
-    <button type="submit">Save Review</button>
-   <!-- <button type="submit">Cancel</button> -->
+<!-- views/reviews-edit.handlebars -->
+
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <form method="POST" action="/reviews/{{review._id}}?_method=PUT">
+      {{> reviews-form}}
+      <!-- BUTTON -->
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Save Review</button>
+      </div>
+    </form>
   </div>
-</form>
+</div>
