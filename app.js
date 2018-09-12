@@ -14,14 +14,17 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes
 
 // ROUTER
 var review = require('./controllers/reviews');
-var comment = require('./controllers/comments')
+var comment = require('./controllers/comments');
 
  //ROUTES MIDDLEWARE
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
 app.engine('handlebars',exphbs({defaultLayout:'main'}));
 app.set('view engine','handlebars');
+
+// ROUTERS
 app.use('/',review);
+app.use('/reviews/comments',comment);
 
 
 // SERVER
